@@ -1,0 +1,32 @@
+name: docmap_playground
+channels:
+  - defaults
+dependencies:
+  - pip
+  - pip:
+    - -e .  # conda >= 4.4 only
+    - python-dotenv>=0.5.1
+    - nbval
+    - nbdime
+    - gdown
+  - setuptools
+  - wheel
+  - git>=2.5  # for git worktree template updating
+  - sphinx
+  - bokeh
+  - click
+  - colorcet
+  - coverage
+  - coveralls
+  - matplotlib
+  - jupyter
+  - scikit-learn
+  - scipy
+  - joblib
+  - nb_conda_kernels<2.2.0  # nb_conda_kernels issue #158
+  - pandas
+  - requests
+  - pathlib
+  - fsspec
+  - python=3.7
+
