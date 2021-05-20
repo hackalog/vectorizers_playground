@@ -2,17 +2,19 @@ Document Embedding (DocMAP) Playground
 ==============================
 _Author: Tutte Institute for Mathematics and Computing_
 
-An Easydata-generated repo for exploring the TIMC vectorizers library to construct document embeddings.
+An Easydata-generated repo for exploring the [TIMC vectorizers library](https://github.com/TutteInstitute/vectorizers) to construct document embeddings.
 
-This repo is build on the easydata template and workflow for making it easy to share your work with others and
-to build on the work of others. This includes:
+
+ABOUT THIS REPO
+---------------
+This repo is build on the easydata template and workflow for making it easy to share your work with others and to build on the work of others. This includes:
 
 * managing conda environments in a consistent and reproducible way,
 * built in dataset management (including tracking of licenses),
 * pre-established project structure,
 * workflows and conventions for contributing notebooks and other code.
 
-REQUIREMENTS
+EASYDATA REQUIREMENTS
 ------------
 * Make
 * conda >= 4.8 (via Anaconda or Miniconda)
