@@ -28,6 +28,7 @@ dependencies:
   - nltk
   - pandas
   - pathlib
+  - pytest
   - requests
   - scikit-image   # umap-learn[plot]
   - scikit-learn
