@@ -12,6 +12,7 @@ dependencies:
     - gdown
     #- sentence-transformers
     - git+https://github.com/TutteInstitute/vectorizers
+    - jupytemplate
   - bokeh
   - click
   - colorcet    # umap-learn[plot]
