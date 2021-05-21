@@ -7,11 +7,12 @@ An Easydata-generated repo for exploring the [TIMC vectorizers library](https://
 
 ABOUT THIS REPO
 ---------------
-This repo is build on the [Easydata](https://github.com/hackalog/easydata) framework and workflow for making it easy to share your work with others and to build on the work of others. This includes:
+This git repository is build from the [Easydata](https://github.com/hackalog/easydata) framework, which aims to make
+your data science workflow reproducible. The Easydata framework includes:
 
-* managing conda environments in a consistent and reproducible way,
-* built in dataset management (including tracking of licenses),
-* pre-established project structure,
+* tools for managing conda environments in a consistent and reproducible way,
+* built-in dataset management (including tracking of metadata such as LICENSES and READMEs),
+* a prescribed project directory structure,
 * workflows and conventions for contributing notebooks and other code.
 
 EASYDATA REQUIREMENTS
