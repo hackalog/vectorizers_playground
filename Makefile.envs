@@ -46,6 +46,8 @@ endif
 .PHONY: update_environment
 ## Install or update Python Dependencies in the virtual (conda) environment
 update_environment: environment_enabled $(EASYDATA_LOCKFILE)
+	jupyter nbextension install --py jupytemplate --sys-
+	jupyter nbextension enable jupytemplate/main --sys-prefix
 ifneq ("X$(wildcard .post-update-environment.txt)","X")
 	@cat .post-update-environment.txt
 endif

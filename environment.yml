@@ -2,7 +2,6 @@ name: document_embedding_playground
 channels:
   - pytorch
   - defaults
-  - conda-forge
 dependencies:
   - python=3.7
   - pip
