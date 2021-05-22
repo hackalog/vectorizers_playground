@@ -84,6 +84,7 @@ def process_20_newsgroups(*, extract_dir='20_newsgroups',
     data_dir = unpack_dir / f"{extract_dir}"
 
     news = fetch_20newsgroups(**opts)
+    metadata['target_names'] = news.target_names
 
     return news.data, news.target, metadata
 
