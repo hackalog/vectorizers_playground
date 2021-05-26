@@ -1,31 +1,29 @@
-name: document_embedding_playground
+name: docmap_playground
 channels:
   - pytorch
   - defaults
-  - conda-forge
 dependencies:
   - python=3.7
   - pip
   - pip:
-    - -e .  # conda >= 4.4 only
+    - -e .   # conda >= 4.4 only
     - python-dotenv
     - gdown
-    #- sentence-transformers
+    - sentence-transformers
+    - umap-learn
     - git+https://github.com/TutteInstitute/vectorizers
   - bokeh
   - click
-  - colorcet    # umap-learn[plot]
-  - coverage
+  - colorcet     # umap-learn[plot]
   - coveralls
-  - datashader  # umap-learn[plot]
+  - datashader   # umap-learn[plot]
   - fsspec
-  - git>=2.5  # for git worktree template updating
-  - holoviews   # umap-learn[plot]
+  - git>=2.5     # for git worktree template updating
+  - holoviews    # umap-learn[plot]
   - joblib
   - jupyter
   - matplotlib
   - nb_conda_kernels#<2.2.0  # nb_conda_kernels issue #158
-  - nltk
   - pandas
   - pathlib
   - pytest
@@ -41,6 +39,5 @@ dependencies:
   - wheel
   - pytorch::pytorch
   - pytorch::torchvision
-  - conda-forge::tokenizers
-  - conda-forge::transformers
-  - conda-forge::umap-learn
+  - huggingface::tokenizers
+  - huggingface::transformers>3.1
