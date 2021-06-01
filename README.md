@@ -2,17 +2,17 @@ Document Embedding (DocMAP) Playground
 ==============================
 _Author: Tutte Institute for Mathematics and Computing_
 
-An Easydata-generated repo for exploring the [TIMC vectorizers library](https://github.com/TutteInstitute/vectorizers) to construct document embeddings.
+An Easydata-generated repo for exploring the TIMC vectorizers library to construct document embeddings.
 
 
-ABOUT THIS REPO
+ABOUT EASYDATA
 ---------------
-This git repository is build from the [Easydata](https://github.com/hackalog/easydata) framework, which aims to make
-your data science workflow reproducible. The Easydata framework includes:
 
-* tools for managing conda environments in a consistent and reproducible way,
-* built-in dataset management (including tracking of metadata such as LICENSES and READMEs),
-* a prescribed project directory structure,
+This git repository is build on the [Easydata](https://github.com/hackalog/easydata) framework, making it easy to share your work with others andto build on the work of others. Easydata includes:
+
+* managing conda environments in a consistent and reproducible way,
+* built in dataset management (including tracking of licenses),
+* pre-established project structure,
 * workflows and conventions for contributing notebooks and other code.
 
 EASYDATA REQUIREMENTS
@@ -23,21 +23,28 @@ EASYDATA REQUIREMENTS
 
 GETTING STARTED
 ---------------
-### Git Configuration and Checking Out the Repo
+### Initial Git Configuration and Checking Out the Repo
 
 If you haven't yet done so, please follow the instrucitons
-in [Setting up git and Checking Out the Repo](framework-docs/git-configuration.md) in
+in [Setting up git and Checking Out the Repo](reference/easydata/git-configuration.md) in
 order to check-out the code and set-up your remote branches
 
 Note: These instructions assume you are using SSH keys (and not HTTPS authentication) with github.com.
 If you haven't set up SSH access to github.com, see [Configuring SSH Access to github.com](https://github.com/hackalog/easydata/wiki/Configuring-SSH-Access-to-Github). This also includes instuctions for using more than one account with SSH keys.
 
-Once you've got your local, `origin`, and `upstream` branches configured, you can follow the instructions in this handy [Git Workflow Cheat Sheet](framework-docs/git-workflow.md) to keep your working copy of the repo in sync with the others.
+Once you've got your local, `origin`, and `upstream` branches configured, you can follow the instructions in this handy [Git Workflow Cheat Sheet](reference/easydata/git-workflow.md) to keep your working copy of the repo in sync with the others.
 
 ### Setting up your environment
-**WARNING**: If you have conda-forge listed as a channel in your `.condarc` (or any other channels other than defaults), remove it during the course of the workshop. Even better, don't use a `.condarc` for managing channels, as it overrides the `environment.yml` instructions and makes things less reproducible. Make the changes to the `environment.yml` file if necessary. We've had some conda-forge related issues with version conflicts. We also recommend [setting your channel priority to 'strict'](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html) to reduce package incompatibility problems.
+**WARNING**: If you have conda-forge listed as a channel in your `.condarc` (or any other channels other than defaults), you may experience great difficulty generating reproducible conda environments.
 
-Initial setup:
+We recommend you remove conda-forge (and all other non-default channels) from your `.condarc` file and [set your channel priority to 'strict'](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html). Alternate channels can be specified explicitly in your your `environment.yml` by prefixing your package name with `channel-name::`; e.g.
+```
+  - wheel                    # install from the default (anaconda) channel
+  - pytorch::pytorch         # install this from the `pytorch` channel
+  - conda-forge::tokenizers  # install this from conda-forge
+
+
+### Initial setup
 
 * Make note of the path to your conda binary:
 ```
@@ -55,9 +62,9 @@ make create_environment
 conda activate docmap_playground
 ```
 
-Now you're ready to run `jupyter notebook` and explore the notebooks in the `notebooks` directory.
+Now you're ready to run `jupyter notebook` (or jupyterlab) and explore the notebooks in the `notebooks` directory.
 
-For more instructions on setting up and maintaining your environment (including how to point your environment at your custom forks and work in progress) see [Setting up and Maintaining your Conda Environment Reproducibly](framework-docs/conda-environments.md).
+For more instructions on setting up and maintaining your environment (including how to point your environment at your custom forks and work in progress) see [Setting up and Maintaining your Conda Environment Reproducibly](reference/easydata/conda-environments.md).
 
 ### Loading Datasets
 
@@ -78,7 +85,7 @@ workflow.available_datasets(keys_only=True)
 
 Note: sometimes datasets can be quite large. If you want to store your data externally, we recommend symlinking your data directory (that is `docmap_playground/data`) to somewhere with more room.
 
-For more on Datasets, see [Getting and Using Datasets](framework-docs/datasets.md).
+For more on Datasets, see [Getting and Using Datasets](reference/easydata/datasets.md).
 
 ### Using Notebooks and Sharing your Work
 This repo has been set up in such a way as to make:
@@ -86,7 +93,7 @@ This repo has been set up in such a way as to make:
 * environment management easy and reproducible
 * sharing analyses via notebooks easy and reproducible
 
-There are some tricks, hacks, and built in utilities that you'll want to check out: [Using Notebooks for Analysis](framework-docs/notebooks.md).
+There are some tricks, hacks, and built in utilities that you'll want to check out: [Using Notebooks for Analysis](reference/easydata/notebooks.md).
 
 Here are some best practices for sharing using this repo:
 
@@ -95,13 +102,13 @@ Here are some best practices for sharing using this repo:
 * Put any scripts or other code in the `src` module. We suggest you create a directory using the same initials you put in your notebook titles (e.g. `src/xyz`) You will be able to import it into your notebooks via `from src.xyz import ...`.
 * See the Project Organization section below to see where other materials should go, such as reports, figures, and references.
 
-For more on sharing your work, including using git, submitting PRs and the like, see [Sharing your Work](framework-docs/sharing-your-work.md).
+For more on sharing your work, including using git, submitting PRs and the like, see [Sharing your Work](reference/easydata/sharing-your-work.md).
 
 ### Quick References
-* [Setting up and Maintaining your Conda Environment Reproducibly](framework-docs/conda-environments.md)
-* [Getting and Using Datasets](framework-docs/datasets.md)
-* [Using Notebooks for Analysis](framework-docs/notebooks.md)
-* [Sharing your Work](framework-docs/sharing-your-work.md)
+* [Setting up and Maintaining your Conda Environment Reproducibly](reference/easydata/conda-environments.md)
+* [Getting and Using Datasets](reference/easydata/datasets.md)
+* [Using Notebooks for Analysis](reference/easydata/notebooks.md)
+* [Sharing your Work](reference/easydata/sharing-your-work.md)
 
 
 Project Organization
@@ -126,18 +133,22 @@ Project Organization
         * Raw (immutable) hash-verified downloads.
     * `data/interim`
         * Extracted and interim data representations.
+    * `data/interim/cache`
+        * Dataset cache
     * `data/processed`
         * The final, canonical data sets ready for analysis.
 * `docs`
-    * Documentation files for this project.
-* `framework-docs`
-    * Basic documentation on how to use the framework and workflows associated with this project.
+    * Sphinx-format documentation files for this project.
+    * `docs/Makefile`: Makefile for generating HTML/Latex/other formats from Sphinx-format documentation.
 * `notebooks`
     *  Jupyter notebooks. Naming convention is a number (for ordering),
     the creator's initials, and a short `-` delimited description,
     e.g. `1.0-jqp-initial-data-exploration`.
-* `references`
-    * Data dictionaries, manuals, papers, or other explanatory materials.
+* `reference`
+    * Data dictionaries, documentation, manuals, scripts, papers, or other explanatory materials.
+    * `reference/easydata`: Easydata framework and workflow documentation.
+    * `reference/templates`: Templates and code snippets for Jupyter
+    * `reference/dataset`: resources related to datasets; e.g. dataset creation notebooks and scripts
 * `reports`
     * Generated analysis as HTML, PDF, LaTeX, etc.
     * `reports/figures`
@@ -161,4 +172,4 @@ Project Organization
 
 --------
 
-<p><small>This project was built using <a target="_blank" href="https://github.com/hackalog/easydata">Easydata</a>, a python template aimed at making your data science workflow reproducible.</small></p>
+<p><small>This project was built using <a target="_blank" href="https://github.com/hackalog/easydata">Easydata</a>, a python framework aimed at making your data science workflow reproducible.</small></p>
