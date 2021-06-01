@@ -1,0 +1,15 @@
+{
+  "output_datasets": [
+    "20_newsgroups"
+  ],
+  "transformations": [
+    {
+      "transformer_kwargs": {
+        "dataset_name": "20_newsgroups",
+        "datasource_name": "20_newsgroups"
+      },
+      "transformer_module": "src.data.datasets",
+      "transformer_name": "dataset_from_datasource"
+    }
+  ]
+}

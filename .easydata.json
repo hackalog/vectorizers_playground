@@ -1,5 +1,5 @@
 {
-    "_template": "easydata",
+    "_template": "cookiecutter-easydata",
     "author_name": "Tutte Institute for Mathematics and Computing",
     "conda_path": "~/anaconda3/bin/conda",
     "default_branch": "main",
