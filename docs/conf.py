@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Document Embedding (DocMAP) Playground documentation build configuration file, created by
+# Vectorizers Playground documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -41,7 +41,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Document Embedding (DocMAP) Playground'
+project = u'Vectorizers Playground'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -164,7 +164,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'docmap_playgrounddoc'
+htmlhelp_basename = 'vectorizers_playgrounddoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -184,8 +184,8 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     'docmap_playground.tex',
-     u'Document Embedding (DocMAP) Playground Documentation',
+     'vectorizers_playground.tex',
+     u'Vectorizers Playground Documentation',
      u"Tutte Institute for Mathematics and Computing", 'manual'),
 ]
 
@@ -215,7 +215,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'docmap_playground', u'Document Embedding (DocMAP) Playground Documentation',
+    ('index', 'vectorizers_playground', u'Vectorizers Playground Documentation',
      [u"Tutte Institute for Mathematics and Computing"], 1)
 ]
 
@@ -229,9 +229,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'docmap_playground', u'Document Embedding (DocMAP) Playground Documentation',
-     u"Tutte Institute for Mathematics and Computing", 'Document Embedding (DocMAP) Playground',
-     'An Easydata-generated repo for exploring the TIMC vectorizers library to construct document embeddings.', 'Miscellaneous'),
+    ('index', 'vectorizers_playground', u'Vectorizers Playground Documentation',
+     u"Tutte Institute for Mathematics and Computing", 'Vectorizers Playground',
+     'An Easydata-generated repo for exploring the TIMC vectorizers library to construct word, document and topic embeddings.', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
