@@ -36,9 +36,9 @@ GETTING STARTED
 ```
 * Create and switch to the virtual environment:
 ```
-cd docmap_playground
+cd vectorizers_playground
 make create_environment
-conda activate docmap_playground
+conda activate vectorizers_playground
 ```
 
 Now you're ready to run `jupyter notebook` (or jupyterlab) and explore the notebooks in the `notebooks` directory.

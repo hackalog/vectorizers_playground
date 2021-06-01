@@ -36,7 +36,7 @@ jobs:
             make create_environment
             conda init bash
             sed -ne '/>>> conda initialize/,/<<< conda initialize/p' ~/.bashrc >> $BASH_ENV
-            echo "conda activate docmap_playground" >> $BASH_ENV;
+            echo "conda activate vectorizers_playground" >> $BASH_ENV;
 
       - run:
           name: Create test report directory

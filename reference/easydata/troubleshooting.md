@@ -26,7 +26,7 @@ from src.log import logger
 logger.setLevel(logging.DEBUG)
 ```
 
-Third, ensure your notebook is running the correct environment; i.e. select **Kernel -> Change kernel -> Python[conda env:docmap_playground]**. If you don't seem to have that option, make sure that you ran `jupyter notebooks` with the `docmap_playground` conda environment enabled, and that `which jupyter` points to the correct (docmap_playground) version of jupyter.
+Third, ensure your notebook is running the correct environment; i.e. select **Kernel -> Change kernel -> Python[conda env:vectorizers_playground]**. If you don't seem to have that option, make sure that you ran `jupyter notebooks` with the `vectorizers_playground` conda environment enabled, and that `which jupyter` points to the correct (vectorizers_playground) version of jupyter.
 
 
 If your problem persists, work through the table below. If these fail to resolve your issue, please post your issue. Include with your issue:
@@ -38,9 +38,9 @@ If your problem persists, work through the table below. If these fail to resolve
 
 | Problem  | Status                    | Fix  |
 | :---          |    :----                             |   :----                             |
-| General weirdness due to not being in the right conda environment  | **Try this first**  | `conda activate docmap_playground` or change the kernel in your jupyter notebook |
+| General weirdness due to not being in the right conda environment  | **Try this first**  | `conda activate vectorizers_playground` or change the kernel in your jupyter notebook |
 | Old conda (e.g. `src` module is not being installed correctly) | **Try this second**| Upgrade conda to version > 4.8 |
-| `src` module not found | **Try this first** | `conda activate docmap_playground`|
+| `src` module not found | **Try this first** | `conda activate vectorizers_playground`|
 | `src` module still doesn't work | **Try this second** | `touch environment.yml && make update_environment` |
 | Nothing works | Take off and nuke it from orbit | `conda deactivate && make delete_environment && make create_environment`|
 

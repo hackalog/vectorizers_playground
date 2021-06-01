@@ -17,7 +17,7 @@ If you've followed the instructions from building the repo contained in the [REA
 
 You can start using the data via `ds.data`. To find out more about the dataset you've just loaded, take a look at `ds.DESCR` and `ds.LICENSE`.
 
-**Warning**: some of the datasets can be quite large. If you want to store your data externally, we recommend symlinking your data directory (that is the `docmap_playground/data` directory) to somewhere with more room before loading your first `Dataset`.
+**Warning**: some of the datasets can be quite large. If you want to store your data externally, we recommend symlinking your data directory (that is the `vectorizers_playground/data` directory) to somewhere with more room before loading your first `Dataset`.
 
 
 ## Digging Deeper
