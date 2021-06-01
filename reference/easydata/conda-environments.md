@@ -1,6 +1,6 @@
 # Setting up and Maintaining your Conda Environment (Reproducibly)
 
-The `docmap_playground` repo is set up with template code to make managing your conda environments easy and reproducible. Not only will _future you_ appreciate this, but so will anyone else who needs to work with your code after today.
+The `vectorizers_playground` repo is set up with template code to make managing your conda environments easy and reproducible. Not only will _future you_ appreciate this, but so will anyone else who needs to work with your code after today.
 
 If you haven't yet, configure your conda environment.
 
@@ -39,14 +39,14 @@ conda config --prepend envs_dirs ~/.conda/envs   # Store environments in local d
 ### Create the conda environment
 * Create and switch to the virtual environment:
 ```
-cd docmap_playground
+cd vectorizers_playground
 make create_environment
-conda activate docmap_playground
+conda activate vectorizers_playground
 make update_environment
 ```
 **Note**: When creating the environment the first time, you really do need to run **both** `make create_environment` and `make update_environment` for the `src` module to install correctly.
 
-To activate the environment, simply `conda activate docmap_playground`
+To activate the environment, simply `conda activate vectorizers_playground`
 
 To deactivate it and return to your base environment, use `conda deactivate`
 
@@ -62,7 +62,7 @@ When adding packages to your python environment, **do not `pip install` or `cond
 
 Your `environment.yml` file will look something like this:
 ```
-name: docmap_playground
+name: vectorizers_playground
   - pip
   - pip:
     - -e .  # conda >= 4.4 only
@@ -101,10 +101,10 @@ To share your updated environment, check in your `environment.yml` file. (More o
 
 
 #### Lock files
-Now, we'll admit that this workflow isn't perfectly reproducible in the sense that conda still has to resolve versions from the `environment.yml`. To make it more reproducible, running either `make create_environment` or `make update_environment` will generate an `environment.{$ARCH}.lock.yml` (e.g. `environment.i386.lock.yml`). This file keeps a record of the exact environment that is currently installed in your conda environment `docmap_playground`. If you ever need to reproduce an environment exactly, you can install from the `.lock.yml` file. (Note: These are architecture dependent).
+Now, we'll admit that this workflow isn't perfectly reproducible in the sense that conda still has to resolve versions from the `environment.yml`. To make it more reproducible, running either `make create_environment` or `make update_environment` will generate an `environment.{$ARCH}.lock.yml` (e.g. `environment.i386.lock.yml`). This file keeps a record of the exact environment that is currently installed in your conda environment `vectorizers_playground`. If you ever need to reproduce an environment exactly, you can install from the `.lock.yml` file. (Note: These are architecture dependent).
 
 #### Using your conda environment in a jupyter notebook
-If you make a new notebook, select the `docmap_playground` environment from within the notebook. If you are somehow in another kernel, select **Kernel -> Change kernel -> Python[conda env:docmap_playground]**. If you don't seem to have that option, make sure that you ran `jupyter notebooks` with the `docmap_playground` conda environment enabled, and that `which jupyter` points to the correct (`docmap_playground`) version of jupyter.
+If you make a new notebook, select the `vectorizers_playground` environment from within the notebook. If you are somehow in another kernel, select **Kernel -> Change kernel -> Python[conda env:vectorizers_playground]**. If you don't seem to have that option, make sure that you ran `jupyter notebooks` with the `vectorizers_playground` conda environment enabled, and that `which jupyter` points to the correct (`vectorizers_playground`) version of jupyter.
 
 If you want your environment changes (or `src` module edits) to be immediately available in your running notebooks, make sure to run a notebook cell containing
 ```
@@ -120,7 +120,7 @@ Sometimes, you need to be sure. Making things reproducible means that blowing th
 conda deactivate
 make delete_environment
 make create_environment
-conda activate docmap_playground
+conda activate vectorizers_playground
 touch environment.yml
 make update_envrionment
 ```

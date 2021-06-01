@@ -1,4 +1,4 @@
-name: docmap_playground
+name: vectorizers_playground
 channels:
   - pytorch
   - defaults

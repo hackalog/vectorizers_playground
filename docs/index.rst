@@ -1,9 +1,9 @@
-.. Document Embedding (DocMAP) Playground documentation master file, created by
+.. Vectorizers Playground documentation master file, created by
    sphinx-quickstart.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Document Embedding (DocMAP) Playground documentation!
+Vectorizers Playground documentation!
 ==============================================
 
 Contents:

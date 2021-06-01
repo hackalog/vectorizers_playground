@@ -23,29 +23,29 @@ git calls `upstream` (the **team repo**), and `origin` (your **personal fork** o
 
 Create a local git checkout by cloning your personal fork:
 ```bash
-git clone git@github.com:<your_git_handle>/docmap_playground.git
+git clone git@github.com:<your_git_handle>/vectorizers_playground.git
 ```
 Add the team (shared) repo as a remote branch named `upstream`:
 ```bash
-  cd docmap_playground
-  git remote add upstream git@github.com:<upstream-repo>/docmap_playground.git
+  cd vectorizers_playground
+  git remote add upstream git@github.com:<upstream-repo>/vectorizers_playground.git
 ```
 
 You can verify that these branches are configured correctly by typing
 
 ```
 >>> git remote -v
-origin	git@github.com:<your_git_handle>/docmap_playground.git (fetch)
-origin	git@github.com:<your_git_handle>/docmap_playground.git (push)
-upstream	git@github.com:<upstream-repo>/docmap_playground.git (fetch)
-upstream	git@github.com:<upstream-repo>/docmap_playground.git (push)
+origin	git@github.com:<your_git_handle>/vectorizers_playground.git (fetch)
+origin	git@github.com:<your_git_handle>/vectorizers_playground.git (push)
+upstream	git@github.com:<upstream-repo>/vectorizers_playground.git (fetch)
+upstream	git@github.com:<upstream-repo>/vectorizers_playground.git (push)
 ```
 or if you use HTTPS-based authentication:
 ```
-origin	https://github.com/<your_git_handle>/docmap_playground.git (fetch)
-origin	https://github.com/<your_git_handle>/docmap_playground.git (push)
-upstream	https://github.com/<upstream-repo>/docmap_playground.git (fetch)
-upstream	https://github.com/<upstream-repo>/docmap_playground.git (push)
+origin	https://github.com/<your_git_handle>/vectorizers_playground.git (fetch)
+origin	https://github.com/<your_git_handle>/vectorizers_playground.git (push)
+upstream	https://github.com/<upstream-repo>/vectorizers_playground.git (fetch)
+upstream	https://github.com/<upstream-repo>/vectorizers_playground.git (push)
 ```
 
 ### Do Your Work in Branches

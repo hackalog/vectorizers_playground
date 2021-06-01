@@ -2,10 +2,10 @@ default_context:
   author_name: Tutte Institute for Mathematics and Computing
   conda_path: ~/anaconda3/bin/conda
   default_branch: main
-  description: An Easydata-generated repo for exploring the TIMC vectorizers library to construct document embeddings.
+  description: An Easydata-generated repo for exploring the TIMC vectorizers library to construct word, document and topic embeddings.
   module_name: src
   open_source_license: MIT
-  project_name: Document Embedding (DocMAP) Playground
+  project_name: Vectorizers Playground
   python_version: '3.7'
-  repo_name: docmap_playground
+  repo_name: vectorizers_playground
   upstream_location: github.com
