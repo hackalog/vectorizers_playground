@@ -11,6 +11,8 @@ dependencies:
     - gdown
     - sentence-transformers
     - umap-learn
+    - hdbscan
+    - wordcloud
     - git+https://github.com/TutteInstitute/vectorizers
   - bokeh
   - click
@@ -18,6 +20,7 @@ dependencies:
   - coveralls
   - datashader   # umap-learn[plot]
   - fsspec
+  - gensim
   - git>=2.5     # for git worktree template updating
   - holoviews    # umap-learn[plot]
   - joblib
