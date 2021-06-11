@@ -5,7 +5,6 @@ import shutil
 import tempfile as tf
 
 from src.log import logger
-import src.log.debug
 
 
 @pytest.fixture
