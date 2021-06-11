@@ -71,7 +71,7 @@ def notebook_as_transformer(notebook_name, *,
 
         logger.debug(f"Writing dataset:{ods.name} to disk")
         ods.dump(exists_ok=True, update_catalog=write_dataset_to_catalog)
-
+        dag = DatasetGraph()
         logger.debug(f"Generating Transformer edge")
         transformers = [partial(run_notebook_transformer,
                                 notebook_path=notebook_path,
