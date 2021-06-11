@@ -1,5 +1,4 @@
 import unittest
-import src.log.debug
 
 
 class TestImports(unittest.TestCase):
