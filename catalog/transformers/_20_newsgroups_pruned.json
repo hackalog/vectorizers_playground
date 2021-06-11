@@ -1,0 +1,21 @@
+{
+  "input_datasets": [
+    "20_newsgroups"
+  ],
+  "output_datasets": [
+    "20_newsgroups_pruned"
+  ],
+  "transformations": [
+    {
+      "transformer_kwargs": {
+        "notebook_name": "00-20-newsgroups-setup.ipynb",
+        "notebook_path": null,
+        "output_dataset_names": [
+          "20_newsgroups_pruned"
+        ]
+      },
+      "transformer_module": "src.data.transformer_functions",
+      "transformer_name": "run_notebook_transformer"
+    }
+  ]
+}
