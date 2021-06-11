@@ -5,7 +5,6 @@ import unittest
 from src.data import Dataset
 from src import workflow
 from src.log import logger
-import src.log.debug
 
 
 class TestDatasetsSmall(unittest.TestCase):

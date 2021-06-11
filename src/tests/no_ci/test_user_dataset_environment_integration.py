@@ -2,7 +2,6 @@
 import unittest
 
 from src.data import Dataset
-import src.log.debug
 
 
 class TestDatasets(unittest.TestCase):
