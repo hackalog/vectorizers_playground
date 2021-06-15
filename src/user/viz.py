@@ -3,6 +3,7 @@ from sklearn.neighbors import NearestNeighbors, KernelDensity
 from matplotlib.colors import rgb2hex, Normalize
 from IPython.display import display, HTML
 import wordcloud
+import hdbscan
 import umap
 import matplotlib.pyplot as plt
 
@@ -146,4 +147,95 @@ def topic_word_by_cluster(
         ax.imshow(wc, extent=(xmin, xmax, ymin, ymax), zorder=2)
 
     ax.set(xticks=[], yticks=[], facecolor=background)
-    return fig
+    return
+
+def document_cluster_tree(doc_vectors, min_cluster_size=50):
+    low_dim_rep = umap.UMAP(
+        metric="cosine", n_components=5, min_dist=1e-4, random_state=42, n_epochs=500
+    ).fit_transform(doc_vectors)
+    clusterer = hdbscan.HDBSCAN(min_cluster_size=min_cluster_size).fit(low_dim_rep)
+    tree = clusterer.condensed_tree_.to_pandas()
+    return tree
+
+
+def topic_word_tree_recursion(tree, cluster_id, vectors, nn_index, index_to_word_fn, color_mapper):
+    topic_words, topic_word_dists, size = get_topic_words(tree, cluster_id, vectors, nn_index, index_to_word_fn)
+    child_rows = tree[tree.parent == cluster_id]
+    child_rows = child_rows[child_rows.child_size > 1]
+    topic_word_label = ""
+    for j, word in enumerate(topic_words):
+        topic_word_label += f"<font color='{rgb2hex(color_mapper.to_rgba(topic_word_dists[j]))}'>{word}</font> "
+
+    if len(child_rows) > 0:
+        result = f"<li><span class='caret'>{topic_word_label}</span>\n<ul class='nested'>\n"
+        for i, row in child_rows.iterrows():
+            result += topic_word_tree_recursion(tree, int(row.child), vectors, nn_index, index_to_word_fn, color_mapper)
+        result += "</ul>"
+    else:
+        result = f"<li>■─ {topic_word_label}</li>"
+
+    return result
+
+def topic_word_tree(doc_vectors, word_vectors, index_to_word_fn, min_cluster_size=50, n_neighbors=5, min_dist=0.1, max_dist=0.5):
+    tree = document_cluster_tree(doc_vectors, min_cluster_size=min_cluster_size)
+    word_nbrs = NearestNeighbors(n_neighbors=n_neighbors, metric="cosine").fit(word_vectors)
+    color_norm = Normalize(vmin=min_dist, vmax=max_dist)
+    color_mapper = plt.cm.ScalarMappable(norm=color_norm, cmap="viridis")
+    tree_root = tree.parent.min()
+    tree_html = topic_word_tree_recursion(tree, tree_root, doc_vectors, word_nbrs, index_to_word_fn, color_mapper)
+    result = f"""
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {{
+  height: 100ex;
+  font-family: Tahoma, Verdana, sans-serif;
+}}
+ul, #myUL {{
+  list-style-type: none;
+}}
+#myUL {{
+  margin: 0;
+  padding: 0;
+}}
+.caret {{
+  cursor: pointer;
+  user-select: none;
+}}
+.caret::before {{
+  content: "►";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}}
+.caret-down::before {{
+  transform: rotate(90deg);
+}}
+.nested {{
+  display: none;
+}}
+.active {{
+  display: block;
+}}
+</style>
+</head>
+<body>
+<ul id="myUL">
+{tree_html}
+</ul>
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+for (i = 0; i < toggler.length; i++) {{
+  toggler[i].addEventListener("click", function() {{
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  }});
+}}
+</script>
+</body>
+</html>
+"""
+    return HTML(result, metadata=dict(isolated=True))
