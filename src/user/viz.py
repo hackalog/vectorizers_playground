@@ -75,7 +75,7 @@ def topic_word_by_class(
         ax.imshow(wc, extent=(xmin, xmax, ymin, ymax), zorder=2)
 
     ax.set(xticks=[], yticks=[], facecolor=background)
-    return fig
+    return
 
 def topic_word_by_cluster(
     doc_vectors,
