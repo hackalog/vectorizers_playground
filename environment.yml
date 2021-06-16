@@ -12,6 +12,7 @@ dependencies:
     - sentence-transformers
     - umap-learn
     - hdbscan
+    - svd2vec        # for word benchmarking files
     - wordcloud
     - git+https://github.com/TutteInstitute/vectorizers
   - bokeh
