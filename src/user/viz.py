@@ -6,6 +6,7 @@ import wordcloud
 import hdbscan
 import umap
 import matplotlib.pyplot as plt
+import pynndescent
 
 
 def topic_word_by_class(
@@ -157,6 +158,29 @@ def document_cluster_tree(doc_vectors, min_cluster_size=50):
     tree = clusterer.condensed_tree_.to_pandas()
     return tree
 
+def get_points(tree, cluster_id):
+    child_rows = tree[tree.parent == cluster_id]
+    result_points = []
+    result_lambdas = []
+    for i, row in child_rows.iterrows():
+        if row.child_size == 1:
+            result_points.append(int(row.child))
+            result_lambdas.append(row.lambda_val)
+        else:
+            points, lambdas = get_points(tree, row.child)
+            result_points.extend(points)
+            result_lambdas.extend(lambdas)
+    return result_points, result_lambdas
+
+def get_topic_words(tree, cluster_id, vectors, nn_index, index_to_word_fn):
+    row_ids, weights = get_points(tree, cluster_id)
+    centroid = np.mean(vectors[row_ids], axis=0)
+    if pynndescent.distances.cosine(centroid, np.mean(vectors, axis=0)) < 0.2:
+        dists, inds = nn_index.kneighbors([centroid])
+        return ["☼Generic☼"], [np.mean(dists)], len(row_ids)
+    dists, inds = nn_index.kneighbors([centroid])
+    keywords = [index_to_word_fn(x) for x in inds[0]]
+    return keywords, dists[0], len(row_ids)
 
 def topic_word_tree_recursion(tree, cluster_id, vectors, nn_index, index_to_word_fn, color_mapper):
     topic_words, topic_word_dists, size = get_topic_words(tree, cluster_id, vectors, nn_index, index_to_word_fn)
