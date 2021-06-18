@@ -1,7 +1,7 @@
 {
   "load_function_args": [],
   "load_function_kwargs": {},
-  "load_function_module": "src.tests.make_test_datasets",
+  "load_function_module": "src.data.process_functions",
   "load_function_name": "process_20_newsgroups",
   "name": "20_newsgroups",
   "url_list": [
