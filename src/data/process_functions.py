@@ -6,14 +6,10 @@ import pathlib
 from sklearn.datasets import fetch_20newsgroups
 from functools import partial
 
-from src import workflow, paths
-from src.log import logger
-import src.log.debug
+from .. import workflow, paths
+from ..log import logger
 
 from tqdm.auto import tqdm
-
-from .. import paths
-from ..log import logger
 
 __all__ = [
 'process_20_newsgroups'
